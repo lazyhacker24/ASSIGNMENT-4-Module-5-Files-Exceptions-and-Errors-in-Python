@@ -1,16 +1,11 @@
-# Module 5: Files, Exceptions, and Errors in Python
-# Task 1: Read a File and Handle Errors
+# Task: Read sample.txt and print line by line with line numbers
 
 try:
-    # Open the file in read mode
     with open("sample.txt", "r") as file:
-        print("Contents of sample.txt:\n")
-        # Read and print each line
-        for line in file:
-            print(line.strip())
+        print("Reading file content:")
+        for i, line in enumerate(file, start=1):
+            print(f"Line {i}: {line.strip()}")
 except FileNotFoundError:
-    # Handle the case where the file does not exist
-    print("Error: The file 'sample.txt' was not found. Please make sure it exists.")
+    print("Error: This file 'sample.txt' was not found.")
 except Exception as e:
-    # Handle any other unexpected errors
     print(f"An unexpected error occurred: {e}")
